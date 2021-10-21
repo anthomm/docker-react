@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+serivces:
+  - docker
+
+before_install:
+  - docker build -t aom87shortcut/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true aom87shortcut/docker-react npm run test
